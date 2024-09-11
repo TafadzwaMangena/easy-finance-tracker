@@ -18,9 +18,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
 
-info = SHEET.worksheet('info')
+def add_income():
 
-data = info.get_all_values()
 
-print(data)
+def add_expense():
+
+
+def display_budget():
+
 
