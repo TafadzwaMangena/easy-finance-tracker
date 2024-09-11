@@ -34,3 +34,22 @@ def display_budget():
     """
     Calculate total expenses and savings. Display all data received and calculated to user.
     """
+
+options = ["Add Income", "Add Expense", "Display Current Budget", "Exit"]
+while True:
+    terminal_menu = TerminalMenu(options, title="Select an option:")
+    choice = terminal_menu.show()
+
+    if choice == 0:
+        add_income()
+    elif choice == 1:
+        add_expense()
+    elif choice == 2:
+        display_budget()
+    elif choice == 3:
+        print(f"{Fore.GREEN}Exiting the program...\nGoodbye!{Style.RESET_ALL} ")
+        break
+    else:
+        print(f"{Fore.RED}The choice you entered is invalid. Please select a valid option.{Style.RESET_ALL}")
+        break
+
