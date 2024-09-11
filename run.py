@@ -19,11 +19,18 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
 
 def add_income():
+    """
+    Get income from user which can be a floating number, cannot be a string and should be positive.
+    """
 
 
 def add_expense():
+    """
+    Get expenses from user, discription of expenses which should be a string and amount which should be a positive floating number. Add the two and print the expense.
+    """
 
 
 def display_budget():
-
-
+    """
+    Calculate total expenses and savings. Display all data received and calculated to user.
+    """
