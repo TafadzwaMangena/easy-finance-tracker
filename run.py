@@ -18,6 +18,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
 
+expense = []
 
 def add_income():
     """
@@ -29,10 +30,13 @@ def add_income():
 
 def add_expense():
     """
-    Get expenses from user, discription of expenses which should
+    Get expenses from user, description of expenses which should
     be a string and amount which should be a positive floating number.
     Add the two and print the expense.
     """
+    description = input(f"{Fore.BLUE}Please enter the name for this expense: {Style.RESET_ALL}")
+    amount = float(input(f"{Fore.BLUE}Please enter the amount for this expense: {Style.RESET_ALL}"))
+    print(f"{Fore.YELLOW}The expense added is '{description}' amounting €{amount}{Style.RESET_ALL}")
 
 
 def display_budget():
