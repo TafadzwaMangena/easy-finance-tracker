@@ -18,12 +18,14 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
 
+
 def add_income():
     """
     Get income from user which can be a floating number, 
     cannot be a string and should be positive.
     """
-
+    added_income = float(input(f"{Fore.BLUE}Please enter your income: {Style.RESET_ALL}"))
+    print(f"{Fore.YELLOW}Your income has been updated to: {added_income}{Style.RESET_ALL}")
 
 def add_expense():
     """
