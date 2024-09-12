@@ -18,7 +18,23 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
 
-expense = []
+def get_data_from_sheet(SHEET):
+    """
+    Get all data from google spreadsheet, store income in row 1 and expenses from row 2.
+    Check if expense data row exists.
+    """
+    income = float(sheet.cell(1, 2).value or 0.0) 
+    expenses = []
+    expense_data = sheet.get_all_values()[1:] 
+    
+    for row in expense_data:
+        if row[0]:  
+            description = row[0]
+            amount = float(row[1])
+            expenses.append((description, amount))
+
+    return income, expenses
+
 
 def add_income():
     """
