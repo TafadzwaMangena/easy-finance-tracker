@@ -20,13 +20,16 @@ SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
 
 def add_income():
     """
-    Get income from user which can be a floating number, cannot be a string and should be positive.
+    Get income from user which can be a floating number, 
+    cannot be a string and should be positive.
     """
 
 
 def add_expense():
     """
-    Get expenses from user, discription of expenses which should be a string and amount which should be a positive floating number. Add the two and print the expense.
+    Get expenses from user, discription of expenses which should
+    be a string and amount which should be a positive floating number.
+    Add the two and print the expense.
     """
 
 
