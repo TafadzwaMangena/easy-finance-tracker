@@ -23,9 +23,9 @@ def get_data_from_sheet(SHEET):
     Get all data from google spreadsheet, store income in row 1 and expenses from row 2.
     Check if expense data row exists.
     """
-    income = float(sheet.cell(1, 2).value or 0.0) 
+    income = float(SHEET.cell(1, 2).value or 0.0) 
     expenses = []
-    expense_data = sheet.get_all_values()[1:] 
+    expense_data = SHEET.get_all_values()[1:] 
     
     for row in expense_data:
         if row[0]:  
