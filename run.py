@@ -7,16 +7,23 @@ from colorama import Fore, Style, init
 #To initialize Colorama to be compatible with Windows
 init(autoreset=True)
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
+def connect_to_google_sheets(easy_finance_tracker):
+    """
+    Authenticate and connect to google spreadsheet using json file,
+    then open google spread sheet, easy_finance_tracker
+    """
+    
+    SCOPE = [
+        'https://www.googleapis.com/auth/spreadsheets',
+        'https://spreadsheets.google.com/feeds',
+        'https://www.googleapis.com/auth/drive'
+        ]
 
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('easy_finance_tracker')
+    CREDS = Credentials.from_service_account_file('creds.json', SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(CREDS)
+
+    SHEET = GSPREAD_CLIENT.open('easy_finance_tracker').sheet1
+    return SHEET
 
 def get_data_from_sheet(SHEET):
     """
